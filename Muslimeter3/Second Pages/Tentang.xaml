@@ -1,0 +1,79 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Muslimeter3.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#FF078A51">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Muslimeter" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="tb_tentang" Text="Tentang" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,83" Background="#FFA1D86E">
+            <Image x:Name="img_digit" HorizontalAlignment="Left" Height="125" Margin="98,50,0,0" VerticalAlignment="Top" Width="270" Source="/Images/digit_dev.png"/>
+            <TextBlock x:Name="tb_tentang1" HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="315" Width="446" Foreground="Black">
+            	<Run Text="Nama Aplikasi&#x9;: Muslimeter"/>
+            	<LineBreak/>
+            	<Run Text="Versi &#x9;&#x9;           : Beta"/>
+            	<LineBreak/>
+            	<Run Text="Developer&#x9;       : DIGIT Team"/>
+            	<LineBreak/>
+            	<Run Text="Anggota&#x9;&#x9;       : 1. Adik Istanto"/>
+            	<LineBreak/>
+            	<Run Text="&#x9;&#x9;                   2. Eko Wahyudi"/>
+            	<LineBreak/>
+            	<Run Text="&#x9;&#x9;                   3. Moh. Fajar Ainul Bashri"/>
+            	<LineBreak/>
+            	<Run Text="&#x9;&#x9;                   4. Muh. Nur Hardyanto"/>
+            	<LineBreak/>
+            	<Run Text="E-mail&#x9;&#x9;          : wahyudi_eko@if.undip.ac.id"/>
+            	<LineBreak/>
+            	<Run Text="Institusi&#x9;&#x9;      : Informatika, "/>
+            	<LineBreak/>
+            	<Run Text="&#x9;&#x9;                   Universitas Diponegoro"/>
+            </TextBlock>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
