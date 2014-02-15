@@ -23,58 +23,41 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Muslimeter" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Bantuan" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Muslimeter" Style="{StaticResource PhoneTextNormalStyle}" Foreground="White"/>
+            <TextBlock Text="Bantuan" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="White"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,88" Background="White" Opacity="100">
-            <ListBox x:Name="lb_isi" HorizontalAlignment="Left" Height="519" VerticalAlignment="Top" Width="456" Background="#FFA1D86E">
-                <ListBoxItem x:Name="lb_bantuan" Content="Bantuan dan tentang Aplikasi Kami" Background="#FF0B3A7E"/>
-                <TextBlock x:Name="tb_bantuan" TextWrapping="Wrap" Height="819" Width="456" Foreground="Black">
-					<Run Text="Fitur utama:"/>
-					<LineBreak/>
-					<Run Text="1. Amalanku"/>
-					<LineBreak/>
-					<Run Text="Fitur ini berisi pencatatan amal, yaitu mencek-list amalan yang sudah dikerjakan. Jumlah amalan yang bersifat sunnah bisa ditambah atau dikurangi. Selain itu ada grafik untuk mempresentasikan data amalan yang dikerjakan."/>
-					<LineBreak/>
-					<Run Text="2. Do'a dan Dzikir"/>
-					<LineBreak/>
-					<Run Text="Berisi do'a harian dan amalan dzikir pagi petang, sebagai sarana panduan amalan sehari-hari."/>
-					<LineBreak/>
-					<Run Text="3. Keutamaan Amal"/>
-					<LineBreak/>
-					<Run Text="Berisi hadits-hadits yang menjelaskan tentang keutamaan amalan-amalan tertentu."/>
-					<LineBreak/>
-					<Run Text="4. Kalender Hijriyah"/>
-					<LineBreak/>
-					<Run Text="Kalender hijriyah yang disertai dengan pengingat peristiwa-peristiwa penting dalam sejarah islam."/>
-					<LineBreak/>
-					<Run Text="5. Jadwal Sholat"/>
-					<LineBreak/>
-					<Run Text="Berisi jadwal sholat 5 waktu dan imsak."/>
-					<LineBreak/>
-					<Run/>
-					<LineBreak/>
-					<Run Text="Fitur Lainnya:"/>
-					<LineBreak/>
-					<Run Text="1. Notification"/>
-					<LineBreak/>
-					<Run Text="Memberikan tanda berupa suara getar bila waktu sholat sudah tiba. Pengingat peristiwa penting dalam sejarah Islam dan pengingat malam penghisaban amal (yaitu perhtungan amalan yang sudah dikerjakan selama sehari-semalam)."/>
-					<LineBreak/>
-					<Run Text="2. Widget"/>
-					<LineBreak/>
-					<Run Text="Menampilkan pengingat pada layar home. Menampilkan grafik amalan pada layar home. Shortcut cek-list amalan."/>
-                </TextBlock>
-            </ListBox>
-        </Grid>
-        <Button Content="Tentang Kami" HorizontalAlignment="Left" Margin="120,519,0,0" VerticalAlignment="Top" Background="#FF7C0F0F" Grid.Row="1">
+
+        <Button Content="Tentang Kami" HorizontalAlignment="Left" Margin="120,527,0,0" VerticalAlignment="Top" Background="#FF047E15" Grid.Row="1" Foreground="White" BorderBrush="White">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
                     <ec:NavigateToPageAction TargetPage="/Second Pages/Tentang.xaml"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
+        <Grid HorizontalAlignment="Left" Height="34" Margin="12,0,0,0" VerticalAlignment="Top" Width="456" Grid.Row="1" Background="#FF047E15">
+            <TextBlock x:Name="tb_bantuan" HorizontalAlignment="Left" Margin="10,6,0,-9" TextWrapping="Wrap" Text="Bantuan dan Tentang Aplikasi Kami" VerticalAlignment="Top" Height="37" Width="443" Foreground="White"/>
+        </Grid>
+        <ListBox HorizontalAlignment="Left" Height="480" Margin="12,39,0,0" Grid.Row="1" VerticalAlignment="Top" Width="458" Background="#FFA1D86E">
+            <ListBoxItem Foreground="#FF110101"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="Fitur utama:" Width="448" Foreground="Black" FontWeight="Bold"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="1. Amalanku" Width="448" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="28,0,0,0" Text="Fitur ini berisi pencatatan amal, yaitu mencek-list amalan yang sudah dikerjakan. Jumlah amalan yang bersifat sunnah bisa ditambah atau dikurangi. Selain itu ada grafik untuk mempresentasikan data amalan yang dikerjakan." Width="427" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="2. Dzikir dan Do'a" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="29,0,0,0" Text="Berisi do'a harian dan amalan dzikir pagi petang, sebagai sarana panduan amalan sehari-hari." Width="427" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="3. Keutamaan Amal" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="29,0,0,0" Text="Berisi hadits-hadits yang menjelaskan tentang keutamaan amalan-amalan tertentu." Width="427" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="4. Kalender Hijriyah" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="29,0,0,0" Text="Kalender hijriyah yang disertai dengan pengingat peristiwa-peristiwa penting dalam sejarah islam." Width="427" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="5. Jadwal Sholat" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="29,0,0,0" Text="Berisi jadwal sholat 5 waktu dan imsak." Width="427" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,15,0,0" Text="Fitur Lainnya:" Foreground="Black" FontWeight="Bold"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="1. Notification" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="28,0,0,0" Text="Memberikan tanda berupa suara getar bila waktu sholat sudah tiba. Pengingat peristiwa penting dalam sejarah Islam dan pengingat malam penghisaban amal (yaitu perhtungan amalan yang sudah dikerjakan selama sehari-semalam)." Width="427" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="10,0,0,0" Text="2. Widget" Foreground="Black"/>
+            <TextBlock TextWrapping="Wrap" Margin="29,0,0,0" Text="Menampilkan pengingat pada layar home. Menampilkan grafik amalan pada layar home. Shortcut cek-list amalan." Width="427" Foreground="Black"/>
+        </ListBox>
     </Grid>
 
 </phone:PhoneApplicationPage>
