@@ -13,8 +13,8 @@ Partial Public Class Page1
     Private Sub hyperlink_Click(sender As Object, e As RoutedEventArgs)
         Dim emailComposeTask As EmailComposeTask = New EmailComposeTask()
 
-        emailComposeTask.Subject = "message subject"
-        emailComposeTask.Body = "message body"
+        emailComposeTask.Subject = "Feedback"
+        emailComposeTask.Body = ""
         emailComposeTask.To = "wahyudi_eko@if.undip.ac.id"
         'emailComposeTask.Cc = "cc@example.com"
         'emailComposeTask.Bcc = "bcc@example.com"
