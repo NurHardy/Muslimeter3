@@ -8,13 +8,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
     x:Class="Muslimeter3.MainPage" 
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.IsVisible="True"
     >
     <!-- d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}" -->
     <toolkit:TransitionService.NavigationInTransition>
@@ -46,72 +47,77 @@
                 <ImageBrush ImageSource="/Images/bg.png"/>
             </controls:Panorama.Background>
 
-            <controls:PanoramaItem Header="Menu" BorderBrush="Black" Height="800" Foreground="Black" FontFamily="Segoe WP Semibold" FontSize="8" FontWeight="Bold">
+            <controls:PanoramaItem Header="Menu" BorderBrush="Black" Height="768" Foreground="Black" FontFamily="Segoe WP Semibold" FontSize="8" Margin="0" Width="422">
                 <controls:PanoramaItem.Background>
                     <ImageBrush Stretch="Fill"/>
                 </controls:PanoramaItem.Background>
-                <Grid>
+                <Grid Margin="0,-36,0,3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="34*"/>
-                        <ColumnDefinition Width="25*"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="238*"/>
+                        <ColumnDefinition Width="155*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="7*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.Background>
                         <ImageBrush Stretch="Fill"/>
                     </Grid.Background>
-                    <Grid Margin="10,151,3,419" Grid.ColumnSpan="2">
-                        <Grid Margin="0,10,0,0">
+                    <Grid Margin="13,186,50,393" Grid.ColumnSpan="2">
+                        <Grid Margin="0,10,10,6">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                     <ec:NavigateToPageAction TargetPage="/Second Pages/DoaDzikirPage.xaml"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                            <Image x:Name="img_DzikirDoa" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/doa.png" RenderTransformOrigin="0.48,-0.03" Margin="0,-10,0,-90">
+                            <Grid Margin="-3,-10,0,-5">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="MouseLeftButtonDown">
                                         <ec:NavigateToPageAction TargetPage="/Second Pages/DoaDzikirPage.xaml"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
-                            </Image>
-                            <TextBlock HorizontalAlignment="Left" Margin="123,-10,0,-62" TextWrapping="Wrap" Text="Do'a dan Dzikir" VerticalAlignment="Top" Height="72" Width="277" FontSize="30" Foreground="Black">
-                            	<i:Interaction.Triggers>
-                            		<i:EventTrigger EventName="MouseLeftButtonDown">
-                            			<ec:NavigateToPageAction TargetPage="/Second Pages/DoaDzikirPage.xaml"/>
-                            		</i:EventTrigger>
-                            	</i:Interaction.Triggers>
-                            </TextBlock>
-                        </Grid>
-                    </Grid>
-                    <Grid Margin="10,10,3,388" Grid.ColumnSpan="2"/>
-                    <Grid Margin="10,276,3,294" Grid.ColumnSpan="2">
-                        <Grid Margin="0,10,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="139*"/>
-                                <ColumnDefinition Width="61*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.ColumnSpan="2">
-                                <Image x:Name="img_keutamaan" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/fadhilah2.png">
+                                <Image x:Name="img_DzikirDoa" Height="100" VerticalAlignment="Top" Source="/Images/doa.png" RenderTransformOrigin="0.48,-0.03" HorizontalAlignment="Left" Width="100">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseLeftButtonDown">
-                                            <ec:NavigateToPageAction TargetPage="/Second Pages/KeutamaanPage.xaml"/>
+                                            <ec:NavigateToPageAction TargetPage="/Second Pages/DoaDzikirPage.xaml"/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Image>
-                                <TextBlock HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="277" FontSize="30" Foreground="Black">
-                        			<i:Interaction.Triggers>
-                        				<i:EventTrigger EventName="MouseLeftButtonDown">
-                        					<ec:NavigateToPageAction TargetPage="/Second Pages/KeutamaanPage.xaml"/>
-                        				</i:EventTrigger>
-                        			</i:Interaction.Triggers>
-                        			<Run Text="Keutamaan Amal"/>
-                        			<LineBreak/>
-                        			<Run/>
+                                <TextBlock Margin="111,24,-20,0" TextWrapping="Wrap" Text="Do'a dan Dzikir" VerticalAlignment="Top" Height="72" FontSize="30" Foreground="#FF872626">
+									<i:Interaction.Triggers>
+										<i:EventTrigger EventName="MouseLeftButtonDown">
+											<ec:NavigateToPageAction TargetPage="/Second Pages/DoaDzikirPage.xaml"/>
+										</i:EventTrigger>
+									</i:Interaction.Triggers>
                                 </TextBlock>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid Margin="10,411,3,169" Grid.ColumnSpan="2">
-                        <Grid>
+                    <Grid Margin="10,310,25,270" Grid.ColumnSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="139*"/>
+                            <ColumnDefinition Width="61*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.ColumnSpan="2" Margin="0,0,57,0">
+                            <Image x:Name="img_keutamaan" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/fadhilah2.png">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <ec:NavigateToPageAction TargetPage="/Second Pages/KeutamaanPage.xaml"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Image>
+                            <TextBlock Margin="112,29,-57,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="71" FontSize="30" Foreground="#FF872626">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ec:NavigateToPageAction TargetPage="/Second Pages/KeutamaanPage.xaml"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+								<Run Text="Keutamaan Amal"/>
+								<LineBreak/>
+								<Run/>
+                            </TextBlock>
+                        </Grid>
+                    </Grid>
+                    <Grid Margin="10,437,100,143" Grid.ColumnSpan="2">
+                        <Grid Margin="0,0,10,0">
                             <Image x:Name="img_setting" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/pengaturan.png">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -119,33 +125,33 @@
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Image>
-                            <TextBlock x:Name="PengaturanTB" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="277" FontSize="30" Foreground="Black">
-                    			<i:Interaction.Triggers>
-                    				<i:EventTrigger EventName="MouseLeftButtonDown">
-                    					<ec:NavigateToPageAction TargetPage="/Second Pages/Pengaturan.xaml"/>
-                    				</i:EventTrigger>
-                    			</i:Interaction.Triggers>
-                    			<Run Text="Pengaturan"/>
-                    			<LineBreak/>
-                    			<Run/>
-                    			<LineBreak/>
-                    			<Run/>
+                            <TextBlock x:Name="PengaturanTB" HorizontalAlignment="Left" Margin="112,28,-12,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="166" FontSize="30" Foreground="#FF872626">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ec:NavigateToPageAction TargetPage="/Second Pages/Pengaturan.xaml"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
+								<Run Text="Pengaturan"/>
+								<LineBreak/>
+								<Run/>
+								<LineBreak/>
+								<Run/>
                             </TextBlock>
                         </Grid>
                     </Grid>
-                    <Grid Margin="10,30,3,550" Grid.ColumnSpan="2">
-                        <Grid Margin="0,0,-2,0">
+                    <Grid Margin="10,60,120,520" Grid.ColumnSpan="2">
+                        <Grid Margin="0,0,92,0">
                             <Grid Margin="125,26,0,2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="113*"/>
                                     <ColumnDefinition Width="164*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock x:Name="tb_amalanku" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Amalanku" VerticalAlignment="Top" Height="72" Width="277" FontSize="30" Grid.ColumnSpan="2" Margin="0,-35,0,-37" Foreground="Black">
-        							<i:Interaction.Triggers>
-        								<i:EventTrigger EventName="MouseLeftButtonDown">
-        									<ec:NavigateToPageAction TargetPage="/Second Pages/AmalankuPV.xaml"/>
-        								</i:EventTrigger>
-        							</i:Interaction.Triggers>
+                                <TextBlock x:Name="tb_amalanku" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Amalanku" VerticalAlignment="Top" Height="72" Width="150" FontSize="30" Grid.ColumnSpan="2" Foreground="#FF872626" Margin="-12,0,-92,0">
+									<i:Interaction.Triggers>
+										<i:EventTrigger EventName="MouseLeftButtonDown">
+											<ec:NavigateToPageAction TargetPage="/Second Pages/AmalankuPV.xaml"/>
+										</i:EventTrigger>
+									</i:Interaction.Triggers>
                                 </TextBlock>
                             </Grid>
                             <Image x:Name="img_amalanku" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/amalanku.png">
@@ -157,37 +163,57 @@
                             </Image>
                         </Grid>
                     </Grid>
-                    <Grid Margin="10,534,3,46" Grid.ColumnSpan="2">
-                        <Grid Margin="0,-6,0,3">
-                            <Image x:Name="img_help" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/help.png" Margin="0,3,0,0">
+                    <Grid x:Name="back_bantuan" Margin="10,560,140,20" Grid.ColumnSpan="2">
+                        <Grid Margin="0,0,10,-3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="165*"/>
+                                <ColumnDefinition Width="133*"/>
+                                <ColumnDefinition Width="53*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="img_help" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="/Images/help.png" Margin="0,1,0,0">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="MouseLeftButtonDown">
                                         <ec:NavigateToPageAction TargetPage="/Second Pages/Bantuan.xaml"/>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Image>
-                            <TextBlock x:Name="tb_help" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="277" FontSize="30" Text="Bantuan " Foreground="Black">
-                    			<i:Interaction.Triggers>
-                    				<i:EventTrigger EventName="MouseLeftButtonDown">
-                    					<ec:NavigateToPageAction TargetPage="/Second Pages/Bantuan.xaml"/>
-                    				</i:EventTrigger>
-                    			</i:Interaction.Triggers>
+                            <TextBlock x:Name="tb_help" Margin="3,27,-6,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" FontSize="30" Text="Bantuan " Foreground="#FF872626" Grid.ColumnSpan="2" Grid.Column="1">
+								<i:Interaction.Triggers>
+									<i:EventTrigger EventName="MouseLeftButtonDown">
+										<ec:NavigateToPageAction TargetPage="/Second Pages/Bantuan.xaml"/>
+									</i:EventTrigger>
+								</i:Interaction.Triggers>
                             </TextBlock>
                         </Grid>
                     </Grid>
-                    <ScrollBar Grid.Column="1" HorizontalAlignment="Left" Margin="110,276,0,0" VerticalAlignment="Top" Width="55" Height="180"/>
                 </Grid>
             </controls:PanoramaItem>
 
-            <controls:PanoramaItem Header="Jadwal Sholat" FontSize="8" Foreground="Black" FontWeight="Bold">
-                <Grid>
-                    <ListBox HorizontalAlignment="Left" Height="660" Margin="10,10,0,0" VerticalAlignment="Top" Width="400" Loaded="ListBox_Loaded">
-                        <ListBoxItem x:Name="txt_jadwal_sholat" Content="Imsak" Foreground="Black" FontWeight="Normal" FontSize="34" Height="505"/>
+            <controls:PanoramaItem Header="Jadwal Sholat" FontSize="7" Foreground="Black" FontFamily="Andy" Margin="0" UseLayoutRounding="False" Padding="0" Width="470">
+                <Grid Margin="0,65,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="49*"/>
+                        <ColumnDefinition Width="11*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox HorizontalAlignment="Left" Height="638" Margin="10,-55,0,0" VerticalAlignment="Top" Width="400" Loaded="ListBox_Loaded" Grid.ColumnSpan="2">
+                        <ListBoxItem x:Name="txt_jadwal_sholat" Content="Imsak" Foreground="#FF872626" FontWeight="Normal" FontSize="30" Height="505" FontFamily="Segoe UI"/>
                     </ListBox>
                 </Grid>
             </controls:PanoramaItem>
-            <controls:PanoramaItem Header="Kalender Hijriyah" FontSize="8" Foreground="Black" FontWeight="Bold">
-                <Grid/>
+            <controls:PanoramaItem x:Name="pan_kalender" Header="Kalender" FontSize="30" Foreground="Black" FontFamily="Andy" UseLayoutRounding="False" Width="421" Height="758">
+                <Grid x:Name="grid_kalender" HorizontalAlignment="Left" Height="640" VerticalAlignment="Top" Width="420" Margin="0,0,0,-1.767">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="383*"/>
+                        <ColumnDefinition Width="37*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="420" Loaded="ListBox_Loaded" SelectionChanged="ListBox_SelectionChanged" Margin="0,10,0,0" Grid.ColumnSpan="2">
+                        <ListBoxItem x:Name="lbi_kalender" Foreground="#FF872626" Content="Kalender Hijriyah"  Width="417" Height="390" Padding="11,0,0,0" FontFamily="Segoe UI"/>
+                                
+
+                    </ListBox>
+                    <Button x:Name="bt_setting" Content="Pengaturan" HorizontalAlignment="Left" Margin="108,560,0,0" VerticalAlignment="Top" BorderBrush="#FF170202" Foreground="#FF170202" Width="197"/>
+                </Grid>
+
             </controls:PanoramaItem>
 
             <!--Panorama item two-->

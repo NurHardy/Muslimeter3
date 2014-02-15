@@ -1,5 +1,12 @@
-﻿Partial Public Class MainPage
+﻿Imports System
+Imports System.Globalization
+Imports System.Globalization.HijriCalendar
+Imports System.Windows
+
+
+Partial Public Class MainPage
     Inherits PhoneApplicationPage
+
 
     ' Constructor
     Public Sub New()
@@ -49,4 +56,51 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+
+    Private Sub bt_setting__Click(sender As Object, e As RoutedEventArgs) Handles bt_setting.Click
+        MessageBox.Show("Hello World")
+    End Sub
+
+    Private Sub ListBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
+
+        Try
+
+            ' Creates and initializes a HijriCalendar.
+            Dim myCal As New HijriCalendar()
+
+            ' Creates a DateTime and initializes it to the second day of the first month of the year 1422.
+            Dim myDT As New DateTime(1422, 1, 2, myCal)
+
+            Dim kalender As String = ""
+            Dim outputBlock As System.Windows.Controls.TextBlock
+
+            ' Displays the current values of the DateTime.
+            outputBlock.Text += String.Format("HijriAdjustment is {0}.", myCal.HijriAdjustment) & vbCrLf
+            outputBlock.Text += String.Format("   Year is {0}.", myCal.GetYear(myDT)) & vbCrLf
+            outputBlock.Text += String.Format("   Month is {0}.", myCal.GetMonth(myDT)) & vbCrLf
+            outputBlock.Text += String.Format("   Day is {0}.", myCal.GetDayOfMonth(myDT)) & vbCrLf
+
+            ' Sets the HijriAdjustment property to 2.
+            myCal.HijriAdjustment = 2
+            outputBlock.Text += String.Format("HijriAdjustment is {0}.", myCal.HijriAdjustment) & vbCrLf
+            outputBlock.Text += String.Format("   Year is {0}.", myCal.GetYear(myDT)) & vbCrLf
+            outputBlock.Text += String.Format("   Month is {0}.", myCal.GetMonth(myDT)) & vbCrLf
+            outputBlock.Text += String.Format("   Day is {0}.", myCal.GetDayOfMonth(myDT)) & vbCrLf
+
+            ' Sets the HijriAdjustment property to -2.
+            myCal.HijriAdjustment = -2
+            outputBlock.Text += String.Format("HijriAdjustment is {0}.", myCal.HijriAdjustment) & vbCrLf
+            outputBlock.Text += String.Format("   Year is {0}.", myCal.GetYear(myDT)) & vbCrLf
+            outputBlock.Text += String.Format("   Month is {0}.", myCal.GetMonth(myDT)) & vbCrLf
+            outputBlock.Text += String.Format("   Day is {0}.", myCal.GetDayOfMonth(myDT)) & vbCrLf
+
+            lbi_kalender.Content = outputBlock
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+
 End Class

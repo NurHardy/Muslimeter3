@@ -21,4 +21,10 @@ Partial Public Class Page1
 
         emailComposeTask.Show()
     End Sub
+
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Dim marketplaceReviewTask As MarketplaceReviewTask = New MarketplaceReviewTask()
+
+        marketplaceReviewTask.Show()
+    End Sub
 End Class

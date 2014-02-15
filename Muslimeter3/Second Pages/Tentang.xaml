@@ -73,7 +73,8 @@
             	<Run Text="&#x9;&#x9;                   Universitas Diponegoro"/>
             </TextBlock>
             <HyperlinkButton x:Name="email_feedback" Content="wahyudi_eko@if.undip.ac.id" HorizontalAlignment="Left" Margin="143,392,0,0" VerticalAlignment="Top" Width="298" Foreground="#FF047EFA" Click="hyperlink_Click"/>
-          
+            <Button x:Name="bt_review" Content="Nilai Kami" HorizontalAlignment="Left" Height="75" Margin="141,529,0,-80" VerticalAlignment="Top" Click="Button_Click" Background="#FF047E15"/>
+
         </Grid>
     </Grid>
 
