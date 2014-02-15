@@ -66,13 +66,14 @@
             	<LineBreak/>
             	<Run Text="&#x9;&#x9;                   4. Muh. Nur Hardyanto"/>
             	<LineBreak/>
-            	<Run Text="E-mail&#x9;&#x9;          : wahyudi_eko@if.undip.ac.id"/>
+            	<Run Text="E-mail&#x9;&#x9;          : "/>
             	<LineBreak/>
             	<Run Text="Institusi&#x9;&#x9;      : Informatika, "/>
             	<LineBreak/>
             	<Run Text="&#x9;&#x9;                   Universitas Diponegoro"/>
             </TextBlock>
-
+            <HyperlinkButton x:Name="email_feedback" Content="wahyudi_eko@if.undip.ac.id" HorizontalAlignment="Left" Margin="143,392,0,0" VerticalAlignment="Top" Width="298" Foreground="#FF047EFA" Click="hyperlink_Click"/>
+          
         </Grid>
     </Grid>
 
