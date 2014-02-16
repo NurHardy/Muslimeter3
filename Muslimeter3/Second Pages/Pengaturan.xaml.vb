@@ -1,11 +1,15 @@
-﻿Partial Public Class SettingPage
+﻿Imports Microsoft.Phone.Scheduler
+
+Partial Public Class SettingPage
     Inherits PhoneApplicationPage
 
     Public Sub New()
         InitializeComponent()
     End Sub
-	
-	Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+
+    Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        MessageBox.Show("Berhasil!")
+        Dim name As String = Guid.NewGuid().ToString()
         Dim _DBConnectionString As String = "Data Source=/Application Data/static_data.sdf"
         Dim _db As New dataibadah.jadwalsholat_context(_DBConnectionString)
         Dim _sekarang As Date
@@ -46,7 +50,7 @@
             Dim time_exp As Date = CDate(imsak_exp)
             Dim expirationTime As Date = [date] + time_exp.TimeOfDay
 
-            Dim reminder As New Reminder(Name)
+            Dim reminder As New Reminder(name)
             reminder.BeginTime = beginTime
             reminder.ExpirationTime = expirationTime
             reminder.RecurrenceType = ulang
@@ -59,4 +63,9 @@
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+    Private Sub CheckBox_Checked(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
 End Class

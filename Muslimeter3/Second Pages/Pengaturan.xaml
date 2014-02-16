@@ -29,7 +29,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Background="#FFA1D86E" Opacity="100">
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Kota Anda berada:" VerticalAlignment="Top" Width="436" FontSize="36" Foreground="{StaticResource PhoneBackgroundBrush}"/>
-            <ListBox HorizontalAlignment="Left" Height="534" Margin="10,63,0,0" VerticalAlignment="Top" Width="436" Name="lst_kota" SelectedIndex="0" SelectionMode="Single">
+            <ListBox HorizontalAlignment="Left" Height="266" Margin="10,63,0,0" VerticalAlignment="Top" Width="436" Name="lst_kota" SelectedIndex="0" SelectionMode="Single">
                 <ListBoxItem Content="Jakarta (+0)" FontSize="24" Foreground="Black" />
                 <ListBoxItem Content="Bandung (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Surabaya (+0)" FontSize="24" Foreground="Black"/>
@@ -38,8 +38,9 @@
                 <ListBoxItem Content="Yogyakarta (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Cirebon (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Belum diimplementasikan..." FontSize="24" Foreground="Black"/>
-				<Button Content="Button" Click="Button_Click"/>
             </ListBox>
+            <Button Content="Simpan" Click="Button_Click" Margin="158,535,154,0" RenderTransformOrigin="0.488,0.472"/>
+            <CheckBox Content="Sound" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
         </Grid>
     </Grid>
 
