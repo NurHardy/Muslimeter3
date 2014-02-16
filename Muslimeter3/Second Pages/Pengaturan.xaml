@@ -38,6 +38,7 @@
                 <ListBoxItem Content="Yogyakarta (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Cirebon (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Belum diimplementasikan..." FontSize="24" Foreground="Black"/>
+				<Button Content="Button" Click="Button_Click"/>
             </ListBox>
         </Grid>
     </Grid>
