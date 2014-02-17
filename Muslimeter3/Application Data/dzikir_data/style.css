@@ -1,7 +1,10 @@
 .link {
 text-decoration : none;
 color:black;
+display:block;
+
 }
+
 
 .arab{
 font-size: 22px;
