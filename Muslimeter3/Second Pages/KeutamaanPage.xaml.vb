@@ -10,7 +10,9 @@ Partial Public Class KeutamaanPage
         '//These files must match what is included in the application package,
         ' //or BinaryStream.Dispose below will throw an exception.
         Dim files() As String = {
-            "Application Data/dzikir_data/keutamaan_amal.html"
+            "Application Data/dzikir_data/keutamaan_amal.html",
+            "Application Data/dzikir_data/style.css",
+            "Application Data/dzikir_data/jquery.min.js"
         }
 
         Dim isoStore As IsolatedStorageFile = IsolatedStorageFile.GetUserStoreForApplication()

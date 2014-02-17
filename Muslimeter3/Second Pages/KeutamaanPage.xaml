@@ -28,7 +28,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Background="#FFA1D86E" Opacity="100">
-            <phone:WebBrowser x:Name="utama_box" HorizontalAlignment="Left" VerticalAlignment="Top" Height="639" Width="456"/>
+            <phone:WebBrowser x:Name="utama_box" HorizontalAlignment="Left" VerticalAlignment="Top" Height="639" Width="456" IsScriptEnabled="True"/>
 
         </Grid>
     </Grid>

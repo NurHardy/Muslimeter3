@@ -29,7 +29,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Background="#FFA1D86E" Opacity="100">
             <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Kota Anda berada:" VerticalAlignment="Top" Width="436" FontSize="36" Foreground="{StaticResource PhoneBackgroundBrush}"/>
-            <ListBox HorizontalAlignment="Left" Height="266" Margin="10,63,0,0" VerticalAlignment="Top" Width="436" Name="lst_kota" SelectedIndex="0" SelectionMode="Single">
+            <ListBox HorizontalAlignment="Left" Margin="10,63,0,0" Width="436" Name="lst_kota" SelectedIndex="0" SelectionMode="Single">
                 <ListBoxItem Content="Jakarta (+0)" FontSize="24" Foreground="Black" />
                 <ListBoxItem Content="Bandung (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Surabaya (+0)" FontSize="24" Foreground="Black"/>
@@ -38,9 +38,24 @@
                 <ListBoxItem Content="Yogyakarta (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Cirebon (+0)" FontSize="24" Foreground="Black"/>
                 <ListBoxItem Content="Belum diimplementasikan..." FontSize="24" Foreground="Black"/>
+                <CheckBox Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" IsChecked="True" Margin="350,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Sound" VerticalAlignment="Top" FontSize="48" Foreground="Black" Margin="0,-75,0,0"/>
+                <Button Content="Pengaturan Pengingat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="436" Click="buka_pengaturan_pengingat_Click"  Name="buka_pengaturan_pengingat"/>
+                <CheckBox x:Name="CB_subuh" Content="Shalat Shubuh" Width="456" Foreground="#FF090A09" BorderBrush="#BF210404" Background="#FFF3FDF9" OpacityMask="#FFF3F1F1" BorderThickness="3" Height="66" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_dzuhur" Width="456" Content="Shalat Dzhuhur" Background="White" Foreground="#FF090A09" BorderBrush="#FF090A09" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_ashar" Content="Shalat Ashar" Width="456" Background="White" Foreground="#FF090A09" AllowDrop="False" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_maghrib" Content="Shalat Maghrib" Width="456" Background="White" Foreground="#FF090A09" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_Isya" Content="Shalat Isya" Width="456" Background="White" Foreground="#FF090A09" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_rawatib" Background="White" Content="Shalat Rawatib" Width="446" Foreground="Black" IsChecked="True" Visibility="Collapsed" d:IsLocked="True"/>
+                <CheckBox x:Name="CB_tahajjud" Background="White" Content="Shalat Tahajjud" Width="446" Foreground="Black" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_senin_kam" Background="White" Content="Puasa Senin Kamis" Width="446" Foreground="Black" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_sedekah" Background="White" Content="Sedekah" Width="446" Foreground="Black" IsChecked="True" Visibility="Collapsed"/>
+                <CheckBox x:Name="CB_silaturahim" Background="White" Content="Silaturahim" Width="446" Foreground="Black" IsChecked="True" Visibility="Collapsed"/>
+                <Button Content="Tutup Pengingat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="436" Click="tutup_pengaturan_pengingat_Click"  Name="tutup_pengaturan_pengingat" Visibility="Collapsed"/>
+                <Button Content="Simpan" Click="Button_Click" RenderTransformOrigin="0.488,0.472" Margin="150,0,0,0"/>
+                
             </ListBox>
-            <Button Content="Simpan" Click="Button_Click" Margin="158,535,154,0" RenderTransformOrigin="0.488,0.472"/>
-            <CheckBox Content="Sound" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+
         </Grid>
     </Grid>
 
