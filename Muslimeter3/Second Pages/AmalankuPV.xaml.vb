@@ -7,6 +7,8 @@ Partial Public Class PivotPage1
     Private _db As New dataibadah.dataibadah_context(_DBConnectionString)
     Private _today_row As dataibadah.tb_ibadah_harian
     Private _today_sched As dataibadah.tb_jadwal_sholat
+    Private _dataibadah(8) As Integer
+    Private _ndatarec As Single
 
     Enum waktu_sholat
         Isya = 0
@@ -44,74 +46,69 @@ Partial Public Class PivotPage1
     End Sub
 
     Private Sub MuslimeterPV_Loaded(sender As Object, e As RoutedEventArgs) Handles MuslimeterPV.Loaded
-        ''======================= DUMMY COMMAND, DON'T GIVE ATTENTION =================
-        Dim textBlock As New TextBlock
-        textBlock.Text = "Grafik di sini..." + vbCrLf + "[not implemented yet]"
-        textBlock.FontSize = 32
-        textBlock.Margin = New Thickness(50, 100, 0, 0)
+         Dim _sekarang As Date
+        _sekarang = Date.Now()
 
-        canv_graph.Children.Add(textBlock)
-        ''canv_graph.SetLeft(textBlock, 100)
-        ''canv_graph.SetTop(textBlock, 150)
+        Dim _query = From _e In _db.tabel_data_harian
+                            Where (_e.f_tanggal >= Date.Now.AddDays(-8)) And (_e.f_tanggal <= Date.Now) And (_e.f_tanggal.Year = _sekarang.Year)
+                            Select _e Order By _e.f_tanggal
+
+        Dim graphbg As New Rectangle
+        graphbg.Width = 450
+        graphbg.Height = 320
+        graphbg.Fill = New SolidColorBrush(Colors.White)
+        graph_canv.Children.Add(graphbg)
+
+        For Each _dharian As dataibadah.tb_ibadah_harian In _query
+            _ndatarec = _ndatarec + 1
+            Dim a As Single
+            Dim nilai_akh As Integer = 0
+            Dim tmpval As Integer = _dharian.f_status_ibadah
+            For a = 1 To 5 '' Sholat Fardhu
+                nilai_akh = nilai_akh + CInt((tmpval And 1))
+                tmpval = tmpval >> 1
+            Next
+            _dataibadah(_ndatarec) = nilai_akh
+        Next
+
+        ''======================= DUMMY COMMAND, DON'T GIVE ATTENTION =================
         txt_date.Text = generate_date()
 
         '// Initialize the WriteableBitmap with size 512x512 and set it as source of an Image control
-        Dim writeableBmp As New WriteableBitmap(512, 512)
+        Dim writeableBmp As New WriteableBitmap(450, 320)
         canv_img.Source = writeableBmp
         writeableBmp.GetBitmapContext()
 
         '// Load an image from the calling Assembly's resources only by passing the relative path
-        writeableBmp = BitmapFactory.[New](512, 512)
+        writeableBmp = BitmapFactory.[New](450, 320)
 
         '// Clear the WriteableBitmap with white color
         writeableBmp.Clear(Colors.White)
 
-        '// Set the pixel at P(10, 13) to black
-        writeableBmp.SetPixel(10, 13, Colors.Black)
-
-        '// Get the color of the pixel at P(30, 43)
-        'Color color = writeableBmp.GetPixel(30, 43);
-
-        '// Green line from P1(1, 2) to P2(30, 40)
-        writeableBmp.DrawLine(1, 2, 30, 40, Colors.Green)
-
-        '// Line from P1(1, 2) to P2(30, 40) using the fastest draw line method with the color as integer
-        'int[] pixels = writeableBmp.Pixels;
-        'int w = writeableBmp.PixelWidth;
-        'int h = writeableBmp.PixelHeight;
-        'WriteableBitmapExtensions.DrawLine(pixels, w, h, 1, 2, 30, 40, myIntColor);
-
-        '// Blue anti-aliased line from P1(10, 20) to P2(50, 70)
-        writeableBmp.DrawLineAa(10, 20, 50, 70, Colors.Blue)
-
-        '// Black triangle with the points P1(10, 5), P2(20, 40) and P3(30, 10)
-        writeableBmp.DrawTriangle(10, 5, 20, 40, 30, 10, Colors.Black)
-
-        '// Red rectangle from the point P1(2, 4) that is 10px wide and 6px high
-        writeableBmp.DrawRectangle(2, 4, 12, 10, Colors.Red)
-
-        '// Filled blue ellipse with the center point P1(2, 2) that is 8px wide and 5px high
-        writeableBmp.FillEllipseCentered(2, 2, 8, 5, Colors.Blue)
-
-        '// Closed green polyline with P1(10, 5), P2(20, 40), P3(30, 30) and P4(7, 8)
-        'int[] p = new int[] { 10, 5, 20, 40, 30, 30, 7, 8, 10, 5 };
-        'writeableBmp.DrawPolyline(p, Colors.Green);
-
-        '// Cubic Beziér curve from P1(5, 5) to P4(20, 7) with the control points P2(10, 15) and P3(15, 0)
-        writeableBmp.DrawBezier(5, 5, 10, 15, 15, 0, 20, 7, Colors.Purple)
-
-        '// Cardinal spline through the points P1(10, 5), P2(20, 40) and P3(30, 30) with a tension of 0.5
-        'int[] pts = new int[] { 10, 5, 20, 40, 30, 30};
-        'writeableBmp.DrawCurve(pts, 0.5,  Colors.Yellow);
-
-        '// A filled Cardinal spline through the points P1(10, 5), P2(20, 40) and P3(30, 30) with a tension of 0.5
-        ' writeableBmp.FillCurveClosed(pts, 0.5,  Colors.Green);
-
-        '// Blit a bitmap using the additive blend mode at P1(10, 10)
-        'writeableBmp.Blit(new Point(10, 10), bitmap, sourceRect, Colors.White, WriteableBitmapExtensions.BlendMode.Additive);
-
-        '// Override all pixels with a function that changes the color based on the coordinate
-        'writeableBmp.ForEach((x, y, color) => Color.FromArgb(color.A, (byte)(color.R / 2), (byte)(x * y), 100));
+        Dim c As Integer
+        Dim graphLine As New PointCollection
+        For c = 1 To _ndatarec
+            graphLine.Add(New Point(c * 64, (_dataibadah(c) * 65)))
+            If c > 1 Then
+                Dim bottomArea As New Polygon
+                bottomArea.Points.Add(New Point((c - 1) * 64, 320))
+                bottomArea.Points.Add(New Point((c - 1) * 64, _dataibadah(c - 1) * 65))
+                bottomArea.Points.Add(New Point(c * 64, _dataibadah(c) * 65))
+                bottomArea.Points.Add(New Point(c * 64, 320))
+                bottomArea.Fill = New SolidColorBrush(Colors.Blue)
+                bottomArea.Opacity = 0.5
+                graph_canv.Children.Add(bottomArea)
+            End If
+            Dim bullet_ As New Ellipse
+            bullet_.Width = 16
+            bullet_.Height = 16
+            ''bullet_.
+        Next
+        Dim _graph_line As New Polyline
+        _graph_line.Points = graphLine
+        _graph_line.Stroke = New SolidColorBrush(Colors.Blue)
+        _graph_line.StrokeThickness = 5
+        graph_canv.Children.Add(_graph_line)
 
         '// Present the WriteableBitmap!
         writeableBmp.Invalidate()
@@ -121,13 +118,11 @@ Partial Public Class PivotPage1
         '' ===== LOAD JADWAL SHOLAT
         Dim _DBConnectionSched As String = "Data Source=/Application Data/static_data.sdf"
         Dim _db_sched As New dataibadah.jadwalsholat_context(_DBConnectionSched)
-        Dim _sekarang As Date
-        _sekarang = Date.Now()
 
         Try
             Dim query = From _e In _db_sched.tabel_jadwal
-                           Where (_e.f_tanggal = _sekarang.Day) And (_e.f_bulan = _sekarang.Month)
-                           Select _e
+                            Where (_e.f_tanggal = _sekarang.Day) And (_e.f_bulan = _sekarang.Month)
+                            Select _e
 
             _today_sched = query.FirstOrDefault()
         Catch ex As Exception
