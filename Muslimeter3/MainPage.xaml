@@ -9,13 +9,14 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:wpControls="clr-namespace:WPControls;assembly=WPControls"
     x:Class="Muslimeter3.MainPage" 
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800" 
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.IsVisible="False"
     >
     <!-- d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}" -->
     <toolkit:TransitionService.NavigationInTransition>
@@ -195,25 +196,23 @@
                         <ColumnDefinition Width="49*"/>
                         <ColumnDefinition Width="11*"/>
                     </Grid.ColumnDefinitions>
+                    
                     <ListBox HorizontalAlignment="Left" Height="638" Margin="10,-55,0,0" VerticalAlignment="Top" Width="400" Loaded="ListBox_Loaded" Grid.ColumnSpan="2">
                         <ListBoxItem x:Name="txt_jadwal_sholat" Content="Imsak" Foreground="#FF872626" FontWeight="Normal" FontSize="30" Height="505" FontFamily="Segoe UI"/>
                     </ListBox>
                 </Grid>
             </controls:PanoramaItem>
             <controls:PanoramaItem x:Name="pan_kalender" Header="Kalender" FontSize="30" Foreground="Black" FontFamily="Andy" UseLayoutRounding="False" Width="421" Height="758">
-                <Grid x:Name="grid_kalender" HorizontalAlignment="Left" Height="640" VerticalAlignment="Top" Width="420" Margin="0,0,0,-1.767">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="383*"/>
-                        <ColumnDefinition Width="37*"/>
-                    </Grid.ColumnDefinitions>
-                    <ListBox HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="420" Loaded="ListBox_Loaded" SelectionChanged="ListBox_SelectionChanged" Margin="0,10,0,0" Grid.ColumnSpan="2">
-                        <ListBoxItem x:Name="lbi_kalender" Foreground="#FF872626" Content="Kalender Hijriyah"  Width="417" Height="390" Padding="11,0,0,0" FontFamily="Segoe UI"/>
-                                
+                <StackPanel HorizontalAlignment="center" Margin="10,0,9,0">
+                    <TextBlock VerticalAlignment="Top" Height="50" x:Name="lbi_kalender" Text="Hello" Margin="0" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource PhoneFontSizeLarge}" />
+                    <Canvas Height="464" Width="390">
+                        <Rectangle Fill="#FF386638" VerticalAlignment="Top" Height="464" Width="390"/>
+                        <wpControls:Calendar x:Name="hijri_cal" VerticalAlignment="Top" HorizontalAlignment="Left" Width="370" Height="429" Foreground="White" BorderBrush="White"  RenderTransformOrigin="-1,0" FontFamily="Segoe UI Light" Friday="J" Monday="S" Saturday="S" Sunday="M" Thursday="K" Tuesday="S" Wednesday="R" Canvas.Top="10" Canvas.Left="10" />
+                    </Canvas>
+                    <Button x:Name="bt_setting" Content="Pengaturan" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" BorderBrush="#FF170202" Foreground="#FF170202" Width="197" Height="72"/>
 
-                    </ListBox>
-                    <Button x:Name="bt_setting" Content="Pengaturan" HorizontalAlignment="Left" Margin="108,560,0,0" VerticalAlignment="Top" BorderBrush="#FF170202" Foreground="#FF170202" Width="197"/>
-                </Grid>
-
+                </StackPanel>
+            
             </controls:PanoramaItem>
 
             <!--Panorama item two-->

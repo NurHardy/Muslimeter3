@@ -51,7 +51,7 @@ Partial Public Class MainPage
 
             txt_jadwal_sholat.Content = outStr
 
-
+            ListBox_SelectionChanged()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -62,7 +62,7 @@ Partial Public Class MainPage
         MessageBox.Show("Hello World")
     End Sub
 
-    Private Sub ListBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
+    Private Sub ListBox_SelectionChanged()
 
         Try
 
@@ -73,13 +73,13 @@ Partial Public Class MainPage
             Dim myDT As New DateTime(1422, 1, 2, myCal)
 
             Dim kalender As String = ""
-            Dim outputBlock As System.Windows.Controls.TextBlock
+            Dim outputBlock As New System.Windows.Controls.TextBlock
 
             ' Displays the current values of the DateTime.
-            outputBlock.Text += String.Format("HijriAdjustment is {0}.", myCal.HijriAdjustment) & vbCrLf
-            outputBlock.Text += String.Format("   Year is {0}.", myCal.GetYear(myDT)) & vbCrLf
-            outputBlock.Text += String.Format("   Month is {0}.", myCal.GetMonth(myDT)) & vbCrLf
-            outputBlock.Text += String.Format("   Day is {0}.", myCal.GetDayOfMonth(myDT)) & vbCrLf
+            ' outputBlock.Text += String.Format("HijriAdjustment is {0}.", myCal.HijriAdjustment) & vbCrLf
+            outputBlock.Text += String.Format("   Year is {0}.", myCal.GetYear(myDT))
+            outputBlock.Text += String.Format("   Month is {0}.", myCal.GetMonth(myDT))
+            outputBlock.Text += String.Format("   Day is {0}.", myCal.GetDayOfMonth(myDT))
 
             ' Sets the HijriAdjustment property to 2.
             myCal.HijriAdjustment = 2
@@ -95,7 +95,7 @@ Partial Public Class MainPage
             outputBlock.Text += String.Format("   Month is {0}.", myCal.GetMonth(myDT)) & vbCrLf
             outputBlock.Text += String.Format("   Day is {0}.", myCal.GetDayOfMonth(myDT)) & vbCrLf
 
-            lbi_kalender.Content = outputBlock
+            'lbi_kalender.Text = outputBlock.Text
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)

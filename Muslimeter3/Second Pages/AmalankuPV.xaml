@@ -42,6 +42,7 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="Amalanku" HorizontalAlignment="Left" Margin="12,28,0,0" Width="456">
                 <StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Catat amalanmu hari ini di sini..." Height="39"/>
                     <TextBlock x:Name="txt_date" Text="Tanggal" FontSize="36" Height="64" />
                     <ListBox x:Name="lb_amalanku" VerticalAlignment="Bottom" Width="456" Loaded="ListBox_Loaded" Background="#FFA1D86E" Height="540">
 
@@ -57,6 +58,7 @@
                         <CheckBox x:Name="CB_sedekah" Background="White" Content="Sedekah" Width="446" Foreground="Black"/>
                         <CheckBox x:Name="CB_silaturahim" Background="White" Content="Silaturahim" Width="446" Foreground="Black"/>
                     </ListBox>
+                    
                 </StackPanel>
 
             </controls:PivotItem>
@@ -64,9 +66,16 @@
             <!--Pivot item two-->
             <controls:PivotItem Header="Grafik" VerticalAlignment="Top" Margin="14,10,10,0">
                 <StackPanel HorizontalAlignment="Left" Height="597" VerticalAlignment="Top" Width="456">
-                    <Canvas x:Name="graph_canv" Height="320"/>
-                    <Image x:Name="canv_img" HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="450"/>
-                    
+                    <toolkit:ListPicker x:Name="lst_graph_range" SelectionChanged="ListPicker_SelectionChanged">
+                        <toolkit:ListPickerItem>Minggu</toolkit:ListPickerItem>
+                        <toolkit:ListPickerItem>Bulan</toolkit:ListPickerItem>
+                        <toolkit:ListPickerItem>3 Bulan</toolkit:ListPickerItem>
+                        <toolkit:ListPickerItem>6 Bulan</toolkit:ListPickerItem>
+                        <toolkit:ListPickerItem>Tahun</toolkit:ListPickerItem>
+                    </toolkit:ListPicker>
+                    <TextBlock x:Name="txt_daterange" Text="Range" Height="64" Margin="12,12,12,12" FontSize="28" HorizontalAlignment="Center" />
+                    <Canvas x:Name="graph_canv" Height="360" Width="450"/>
+             
                 </StackPanel>
 
             </controls:PivotItem>
